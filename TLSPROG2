@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+// DEVAYA ANARGYA PUTRI (TARVOS)
+
+string lampu(int t) {
+    int per = 103; 
+    int a = (t - 45) % per; 
+    if (a < 0) a += per; 
+
+    if (a < 3) return "Kuning";
+    if (a < 83) return "Merah";
+    return "Hijau";
+}
+
+int main() {
+string a;
+cout << "Masukkan kata : ";
+cin >> a;
+
+//2. kode yang ada di mesin misterius timothy
+for (int i=0; i<a.length(); i++ ) {
+    if (a[i] == 'A'||a[i] == 'I'||a[i] == 'U'||a[i] == 'E'|| a[i] == 'O'||
+    a[i] == 'a'|| a[i] == 'i'||a[i] == 'u'|| a[i] == 'e'|| a[i] == 'o') {
+    a.erase(i,1);
+    }
+}
+
+    string c = a;
+for (int j=1; j<=a.length(); j++) {
+    a[j-1] = c[a.length()-j];
+    }
+   
+    a[a.length()-1] = c[0];
+
+
+    int b = a.length()/2;
+    int asc = (int)c[0];
+    a.insert(b,to_string(asc));
+
+    cout << a << "\n";
+
+
+//3. kode untuk membuat traffic lights
+
+    int d;
+    cout << "Masukkan detik: ";
+    cin >> d;
+
+    cout << "Detik " << d << ": " << lampu(d) << endl;
+
+    return 0;
+
+}
